@@ -1,0 +1,22 @@
+
+/**
+ * 
+ * @param {String} s
+ */
+const nestingDepthOfParentheses = (s) => {
+    let currentDepth = 0;
+    let maxCount = 0;
+
+    for(let i = 0; i < s.length; i++) {
+        if(s[i] === "(") {
+            currentDepth++;
+            maxCount = Math.max(maxCount, currentDepth);  // Track max depth
+        } else if(s[i] === ")") {
+            currentDepth--;  // Decrease depth on closing parenthesis
+        }
+    }
+
+    return maxCount;
+}
+
+console.log(nestingDepthOfParentheses(s = "()(())((()()))"));

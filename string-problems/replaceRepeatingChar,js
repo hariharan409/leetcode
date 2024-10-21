@@ -1,0 +1,27 @@
+
+/**
+ * 
+ * @param {String} s 
+ */
+const replaceRepeatingChar = (s) => {
+    let sArr = s.split("");
+    for(let i=0;i<sArr.length;i++) {
+        if(sArr[i] === "?") {
+            /** STARTS FROM THE ASCII VALUE OF "a" -> 97. if match will increase the ASCII VALUE else replace ? with the char code  */
+            let value = 97;
+            while(true) {
+                if(value !== sArr[i-1]?.charCodeAt(0) && value !== sArr[i+1]?.charCodeAt(0)) {
+                    sArr[i] = String.fromCharCode(value);
+                    break;
+                } else {
+                    value++;
+                }
+            }
+        } else {
+            continue;
+        }
+    }
+    return sArr.join("");
+}
+
+console.log(replaceRepeatingChar(s = "j?qg??b"));
